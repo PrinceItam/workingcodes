@@ -6,8 +6,7 @@ Feature: Login
 
   Scenario Outline: login with incorrect credentials should return correct error message
 
-    #Given I navigate to homepage
-   #And I choose sign in link
+   
     And I enter wrong "<email>"
     And I enter correct "<password>"
     When I select login button
