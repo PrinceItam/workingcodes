@@ -15,7 +15,7 @@ Feature: Login
     Examples:
 
     |email                      |password          |ErrorMessage                |
-    |                           |automation        |An email address required.  |
+    |lanretest2@gmail.com       |automation        |An email address required.  |
     |lanre.ikuesan2@gmail.com   |                  |Password is required.       |
     |lanre.ikuesan647@gmail.com |automation        |Authentication failed.      |
     |lanre.ikuesan2@gmail.com   |autocratic        |Authentication failed.      |
