@@ -6,8 +6,7 @@ Feature: Create new user
     And I click sign in
 
   Scenario: I want to create new user
-    #Given I have navigated to home screen
-    #And I press signin button
+   
     And I enter email address for new user
     And I click on the create account button
     And I enter all necessary details
