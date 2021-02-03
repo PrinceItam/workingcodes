@@ -33,17 +33,11 @@ public class Purchase4 {
         Actions builder = new Actions(driver);
         WebElement element = driver.findElement(By.xpath("//*[@id=\"homefeatured\"]/li[4]/div/div[1]/div/a[1]/img"));
         builder.moveToElement(element).build().perform();
-        //This code clicks on the "more" button after you have hovered your mouse on the product you want
         driver.findElement(By.xpath("//*[@id=\"homefeatured\"]/li[4]/div/div[2]/div[2]/a[2]/span")).click();
         driver.findElement(By.id("quantity_wanted")).clear();
-        //This line changes clears the quanity field
-        driver.findElement(By.id("quantity_wanted")).sendKeys("3");
-        //This line Changes the size
+        driver.findElement(By.id("quantity_wanted")).sendKeys("6");
         Select size =new Select(driver.findElement(By.id("group_1")));
-        size.selectByVisibleText("L");
-        //page.typeQuantity();
-        //page.selectSize();
-        //page.clickColour();
+        size.selectByVisibleText("M");
 
         page.clickAddToCart();
         Thread.sleep(3000);
