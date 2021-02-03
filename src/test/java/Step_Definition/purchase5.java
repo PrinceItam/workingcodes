@@ -1,26 +1,30 @@
 package Step_Definition;
 
+import Base.TestBase;
 import Pages.purchase5Page;
+import cucumber.api.java.Before;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
 
+import java.io.IOException;
 
-public class Purchase4 {
-    public WebDriver driver;
+public class purchase5 extends TestBase {
+    @Before
+    public void setup() throws IOException {
+        initialize();
+    }
 
     @Given("^I am on the homepage$")
     public void iAmOnTheHomepage() {
-        System.setProperty("webdriver.chrome.driver", "C:\\chromedriver.exe");
-        driver = new ChromeDriver();
-        driver.navigate().to("http://automationpractice.com/");
+        driver.manage().deleteAllCookies();
+        driver.get(CONFIG.getProperty("URL"));
         driver.manage().window().maximize();
     }
 
@@ -37,7 +41,8 @@ public class Purchase4 {
         Select size = new Select(driver.findElement(By.id("group_1")));
         size.selectByVisibleText("M");
         page.selectgreen();
-        driver.findElement(By.id("quantity_wanted")).clear();
+        page.increasesizes();
+        page.morequantity();
         page.clickaddcart();
         Thread.sleep(3000);
         page.clickproceedcheckout1();
@@ -51,13 +56,14 @@ public class Purchase4 {
         page.selectconfirmcheckout1();
         page.selectpayviacheck();
         page.clickconfirmorder();
-        page.clickbackOrder();
+
     }
 
     @Then("^I should see my order history and reference$")
     public void iShouldSeeMyOrderHistoryAndReference() {
-        String ExpectedMessage = "ORDER HISTORY";
-        String Orderdetails = driver.findElement(By.xpath("//*[@id=\"order-list\"]/tbody/tr/td[7]/a[1]/span")).getText();
+        String ExpectedMessage = "YOUR ORDER IN MY STRORE IS COMPLETE";
+        String Orderdetails = driver.findElement(By.xpath("//*[@id=\"center_column\"]/p[1]")).getText();
         System.out.println(Orderdetails);
+
     }
 }

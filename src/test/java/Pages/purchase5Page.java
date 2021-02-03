@@ -16,6 +16,12 @@ public class purchase5Page {
     @FindBy(how = How.NAME, using = "Green")
     public static WebElement colourgreen;
 
+    @FindBy(how = How.ID, using = "quantity_wanted")
+    public static WebElement addquantiy;
+
+    @FindBy(how = How.ID, using = "quantity_wanted")
+    public static WebElement addquantiy1;
+
     @FindBy(how = How.XPATH, using = "//*[@id=\"add_to_cart\"]/button/span")
     public static WebElement addcart;
 
@@ -52,15 +58,14 @@ public class purchase5Page {
     @FindBy(how = How.XPATH, using = "//*[@id=\"cart_navigation\"]/button/span")
     public static WebElement confirmorder;
 
-    @FindBy(how = How.XPATH, using = "//*[@id=\"center_column\"]/p[2]/a")
-    public static WebElement backtoOrder;
-
 
 
 
     public void selectdresses() {dresses.click();}
     public void selectsummerdress() {summerdresses.click();}
     public void selectgreen() {colourgreen.click();}
+    public void increasesizes() {addquantiy.clear();}
+    public void morequantity() {addquantiy1.sendKeys("35");}
     public void clickaddcart() {addcart.click();}
     public void clickproceedcheckout1() {proceedcheckout1.click();}
     public void clickproceedcheckout2() {proceedcheckout2.click();}
@@ -73,9 +78,6 @@ public class purchase5Page {
     public void selectconfirmcheckout1() {confirmcheckout1.click();}
     public void selectpayviacheck() {payviacheck.click();}
     public void clickconfirmorder() {confirmorder.click();}
-    public void clickbackOrder() {backtoOrder.click();}
-
-
 }
 
 
