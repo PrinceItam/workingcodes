@@ -6,7 +6,8 @@ Feature: Purchase2
 
   Scenario: I want to create a purchase
 
-    Given I add product to cart
+    Given I am logged in successfully
+    When I add product to cart
     Then I click on proceed to checkout on pop up dialogue
     Then continue checkout process on shopping cart summary page
     Then continue checkout on address page
