@@ -7,6 +7,22 @@ import org.openqa.selenium.support.ui.Select;
 
 public class Purchase4Page {
 
+
+    @FindBy(how = How.XPATH, using = "//*[@id=\"homefeatured\"]/li[4]/div/div[2]/div[2]/a[2]/span")
+    public static WebElement More;
+
+    @FindBy(how = How.ID, using = "quantity_wanted")
+    public static WebElement Quantity1;
+
+    @FindBy(how = How.ID, using = "quantity_wanted")
+    public static WebElement Quantity;
+
+    @FindBy(how = How.ID, using = "group_1")
+    public static WebElement Size;
+
+    @FindBy(how = How.XPATH, using = "//*[@id=\"color_24\"]")
+    public static WebElement Colour;
+
     @FindBy(how = How.XPATH, using = "//*[@id=\"add_to_cart\"]/button/span")
     public static WebElement AddToCart;
 
@@ -48,7 +64,16 @@ public class Purchase4Page {
 
 
 
+    public void clickMore() {More.click();}
 
+    public void clearQuantity1() {Quantity1.clear();}
+
+    public void typeQuantity() {Quantity.sendKeys("4");}
+
+    public void selectSize() {Select size = new Select(Size);
+        size.selectByVisibleText("M");}
+
+    public void clickColour() {Colour.click();}
 
     public void clickAddToCart() {AddToCart.click();}
 

@@ -1,6 +1,8 @@
 package Step_Definition;
 
+import Base.TestBase;
 import Pages.Purchase4Page;
+import cucumber.api.java.Before;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
@@ -13,16 +15,22 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
 
-public class Purchase4 {
-    public WebDriver driver;
+import java.io.IOException;
+
+public class Purchase4 extends TestBase {
+
+    @Before
+    public void setup() throws IOException {
+        initialize();
+
+    }
 
     @Given("^I am on the home$")
     public void iAmOnTheHome() {
-        System.setProperty("webdriver.chrome.driver", "C:\\chromedriver.exe");
-        driver = new ChromeDriver();
-        driver.navigate().to("http://automationpractice.com/");
+        driver.manage().deleteAllCookies();
+        driver.get(CONFIG.getProperty("URL"));
         driver.manage().window().maximize();
-
+        
     }
 
     @When("^I place an order$")
@@ -33,12 +41,11 @@ public class Purchase4 {
         Actions builder = new Actions(driver);
         WebElement element = driver.findElement(By.xpath("//*[@id=\"homefeatured\"]/li[4]/div/div[1]/div/a[1]/img"));
         builder.moveToElement(element).build().perform();
-        driver.findElement(By.xpath("//*[@id=\"homefeatured\"]/li[4]/div/div[2]/div[2]/a[2]/span")).click();
-        driver.findElement(By.id("quantity_wanted")).clear();
-        driver.findElement(By.id("quantity_wanted")).sendKeys("6");
-        Select size =new Select(driver.findElement(By.id("group_1")));
-        size.selectByVisibleText("M");
-
+        page.clickMore();
+        page.clearQuantity1();
+        page.typeQuantity();
+        page.selectSize();
+        page.clickColour();
         page.clickAddToCart();
         Thread.sleep(3000);
         page.clickProceedToCheckOut();
@@ -59,8 +66,6 @@ public class Purchase4 {
         Purchase4Page page = PageFactory.initElements(driver, Purchase4Page.class);
         page.clickPay();
         page.clickConfirm();
-
-
 
     }
 
