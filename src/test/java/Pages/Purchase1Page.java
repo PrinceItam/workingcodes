@@ -22,6 +22,24 @@ public class Purchase1Page {
     @FindBy(how = How.XPATH, using = "//*[@id=\"block_top_menu\"]/ul/li[1]/a")
     public static WebElement Menu;
 
+    @FindBy(how = How.XPATH, using = "//*[@id=\"center_column\"]/ul/li[2]/div/div[2]/div[2]/a[2]/span")
+    public static WebElement quantity;
+
+    @FindBy(how = How.ID, using = "quantity_wanted")
+    public static WebElement cleanQuantity;
+
+    @FindBy(how = How.ID, using = "quantity_wanted")
+    public static WebElement changeQuantity;
+
+    @FindBy(how = How.ID, using = "group_1")
+    public static WebElement Size;
+
+    @FindBy(how = How.XPATH, using = "//*[@id=\"add_to_cart\"]/button/span")
+    public static WebElement clickout;
+
+    @FindBy(how = How.XPATH, using = "//*[@id=\"header\"]/div[2]")
+    public static WebElement enterBasket;
+
     @FindBy(how = How.XPATH, using = "//*[@id=\"header\"]/div[3]/div/div/div[3]/div/a")
     public static WebElement firstcheckOut;
 
@@ -43,7 +61,7 @@ public class Purchase1Page {
     @FindBy(how = How.XPATH, using = "//*[@id=\"cart_navigation\"]/button/span")
     public static WebElement confirmPayment;
 
-    @FindBy(how = How.XPATH, using = "//*[@id=\"columns\"]/div[1]/span[2]")
+    @FindBy(how = How.XPATH, using = "//*[@id=\"center_column\"]/p[1]")
     public static WebElement orderConfirmation;
 
 
@@ -51,6 +69,14 @@ public class Purchase1Page {
     public void selectPassword() {passWord.sendKeys("Poiuy123");}
     public void clickLogin() {logIn.click();}
     public void clickMenu() {Menu.click();}
+    public void clickMore() {}
+    public void selectQuantity() {quantity.click();}
+    public void clearQuantity() {cleanQuantity.clear();}
+    public void sendQuantity() {changeQuantity.sendKeys("3");}
+    public void selectSize() {Select state =new Select(Size);
+        state.selectByVisibleText("L");}
+    public void clickAway() {clickout.click();}
+    public void clickCart() {enterBasket.click();}
     public void checkoutone() {firstcheckOut.click();}
     public void checkouttwo() {secondCheckout.click();}
     public void checkoutthree() {thirdCheckout.click();}
