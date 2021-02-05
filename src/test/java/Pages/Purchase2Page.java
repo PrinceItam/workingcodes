@@ -1,18 +1,31 @@
 package Pages;
 
+import Base.TestBase;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.ui.Select;
 
-public class Purchase2Page {
+public class Purchase2Page extends TestBase {
 
+    @FindBy (how = How.ID,using = "email")
+    public static WebElement insertUserId;
 
+    @FindBy (how = How.ID,using = "passwd")
+    public static WebElement insertPassword;
 
-    @FindBy (how = How.XPATH, using = "//*[@id=\"block_top_menu\"]/ul/li[1]/a")
-    public static WebElement selectProduct;
+    @FindBy (how = How.ID,using = "SubmitLogin")
+    public static WebElement summitLogin;
+
+    @FindBy(how = How.XPATH, using = "//*[@id=\"block_top_menu\"]/ul/li[1]/a")
+    public static WebElement blockTopMenu;
+
 
     @FindBy (how = How.XPATH, using = "//*[@id=\"center_column\"]/ul/li[2]/div/div[1]/div/a[1]/img")
+    public static WebElement hoverOnProduct;
+
+        @FindBy (how = How.XPATH, using = "//*[@id=\"center_column\"]/ul/li[2]/div/div[2]/div[2]/a[2]/span")
     public static WebElement clickOnMore;
 
     @FindBy(how = How.ID, using = "quantity_wanted")
@@ -27,7 +40,7 @@ public class Purchase2Page {
     @FindBy(how = How.XPATH, using = "//*[@id=\"add_to_cart\"]/button/span")
     public static  WebElement addToCart;
 
-    @FindBy(how = How.XPATH, using ="//*[@id=\"layer_cart\"]/div[1]/div[2]/div[4]/a")
+    @FindBy(how = How.XPATH, using ="//*[@id=\"layer_cart\"]/div[1]/div[2]/div[4]/a/span")
     public static WebElement CheckoutDialogue;
 
     @FindBy (how = How.XPATH, using = "//*[@id=\"center_column\"]/p[2]/a[1]")
@@ -36,7 +49,7 @@ public class Purchase2Page {
     @FindBy (how = How.XPATH, using = "//*[@id=\"center_column\"]/form/p/button")
     public static WebElement CheckoutAddress;
 
-    @FindBy (how = How.CLASS_NAME, using = "cgv")
+    @FindBy (how = How.XPATH, using = "//*[@id=\"cgv\"]")
     public static WebElement termsOfService;
 
     @FindBy (how = How.XPATH, using ="//*[@id=\"form\"]/p/button")
@@ -52,7 +65,14 @@ public class Purchase2Page {
     public static WebElement purchaseSuccessful;
 
 
-    public void selectProduct() throws InterruptedException {selectProduct.click();Thread.sleep(3000);}
+    public void insertUserId() {insertUserId.sendKeys("bidemi2020@yahoo.com");}
+    public void insertPassword() {insertPassword.sendKeys("Poiuy123");}
+    public void summitLogin() {summitLogin.click();}
+    public void blockTopMenu() {blockTopMenu.click();}
+    public void hoverOnProduct() {
+        Actions builder = new Actions(driver);
+        WebElement element = hoverOnProduct;
+        builder.moveToElement(element).build().perform();}
     public void clickOnMore() {clickOnMore.click();}
     public void clearQuantity() {clearQuantity.clear();}
     public void addQuantity() {addQuantity.sendKeys("3");}
