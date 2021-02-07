@@ -7,6 +7,6 @@ Feature: Purchase
   Scenario: I want to make an order
 
   Given I am logged in
-  And I add product to cart
+  And I add dress to cart
   When I check out
   Then Order should be complete

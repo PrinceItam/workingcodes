@@ -33,9 +33,8 @@ public class Purchase4 extends TestBase {
         
     }
 
-    @When("^I place an order$")
-    public void iPlaceAnOrder() throws InterruptedException {
-
+    @When("^I order a product$")
+    public void iOrderAProduct() throws InterruptedException {
         Purchase4Page page = PageFactory.initElements(driver, Purchase4Page.class);
 
         Actions builder = new Actions(driver);
@@ -56,7 +55,6 @@ public class Purchase4 extends TestBase {
         page.clickSubmitOrder();
         page.clickCheckBox();
         page.clickSubmitAgain();
-
     }
 
 
@@ -76,4 +74,6 @@ public class Purchase4 extends TestBase {
         page.assertOrderSuccess();
 
     }
+
+
 }

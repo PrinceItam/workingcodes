@@ -1,6 +1,7 @@
 package Step_Definition;
 
 import Base.TestBase;
+import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
@@ -19,8 +20,8 @@ public class purchaseTest extends TestBase {
     }
 
 
-    @Given("^I add product to cart$")
-    public void i_add_product_to_cart() throws Throwable {
+    @And("^I add dress to cart$")
+    public void iAddDressToCart() throws InterruptedException {
         driver.findElement(By.xpath("//*[@id=\"block_top_menu\"]/ul/li[1]/a")).click();
         Thread.sleep(3000);
         //This code hovers/places the mouse on the product you want to add to cart. be sure you have the correct xpath to the product you want to select
@@ -38,7 +39,6 @@ public class purchaseTest extends TestBase {
         size.selectByVisibleText("S");
         //This line clicks the add to cart button
         driver.findElement(By.xpath("//*[@id=\"add_to_cart\"]/button/span")).click();
-
     }
 
     @When("^I check out$")
@@ -52,4 +52,6 @@ public class purchaseTest extends TestBase {
     public void order_should_be_complete() throws Throwable {
 
     }
+
+
 }
