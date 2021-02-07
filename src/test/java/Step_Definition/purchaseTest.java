@@ -35,7 +35,7 @@ public class purchaseTest extends TestBase {
         driver.findElement(By.id("quantity_wanted")).sendKeys("3");
         //This line Changes the size
         Select size =new Select(driver.findElement(By.id("group_1")));
-        size.selectByVisibleText("L");
+        size.selectByVisibleText("S");
         //This line clicks the add to cart button
         driver.findElement(By.xpath("//*[@id=\"add_to_cart\"]/button/span")).click();
 
@@ -43,6 +43,8 @@ public class purchaseTest extends TestBase {
 
     @When("^I check out$")
     public void i_check_out() throws Throwable {
+
+
 
     }
 
