@@ -76,6 +76,8 @@ public class Purchase3 extends TestBase {
         page.clickSignOutButton();
         page.assertSignedOutUser();
 
+        driver.close();
+
 
 
 
