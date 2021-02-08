@@ -8,6 +8,7 @@ Feature: Purchase3
     Given I signed in
     And I select product to cart
     When I checked out
-    Then Order completed
+    And Order completed
+    Then I should logout
 
 

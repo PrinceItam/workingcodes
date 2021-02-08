@@ -70,6 +70,15 @@ public class Purchase3Page extends TestBase {
     @FindBy(how = How.ID, using = "order-confirmation")
     public static WebElement orderConfirm_message;
 
+    @FindBy(how = How.XPATH, using = "//*[@id=\"header\"]/div[2]/div/div/nav/div[2]/a")
+    public static WebElement signOut;
+
+    @FindBy(how = How.XPATH, using = "//*[@id=\"header\"]/div[2]/div/div/nav/div[1]/a")
+    public static WebElement signInLink;
+
+
+
+
 
 
 
@@ -101,6 +110,9 @@ public class Purchase3Page extends TestBase {
     public void clickOrderConfirmButton() {payment_confirmOrder.click();}
     public void orderComplete() {String OrderConfirmation = orderConfirm_message.getText();
     System.out.println(OrderConfirmation);}
+    public void clickSignOutButton() {signOut.click();}
+    public void assertSignedOutUser() {String SignIn = signInLink.getText();
+    System.out.println(SignIn);}
 
 
 

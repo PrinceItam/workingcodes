@@ -69,4 +69,17 @@ public class Purchase3 extends TestBase {
 
 
     }
+
+    @Then("^I should logout$")
+    public void iShouldLogout() {
+        Purchase3Page page = PageFactory.initElements(driver, Purchase3Page.class);
+        page.clickSignOutButton();
+        page.assertSignedOutUser();
+
+
+
+
+
+
+    }
 }
